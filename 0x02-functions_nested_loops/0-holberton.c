@@ -1,19 +1,18 @@
 #include "main.h"
-
 /**
- * main - function to print
- *
- * Return: 0
- */
+* main - function prints the text "holberton"
+*
+* Return: return 0
+*/
 int main(void)
 {
-	char holberton[9] = {'H', 'o', 'l', 'b', 'e', 'r', 't', 'o', 'n'};
-	unsigned int c;
+	char alx[9] = "_putchar";
+	int ch;
 
-	for (c = 0; c < sizeof(holberton); c++)
+	for (ch = 0; ch <= 7; ch++)
 	{
-		_putchar(holberton[c]);
+		_putchar(alx[ch]);
 	}
-_putchar('\n');
-return (0);
+	_putchar('\n');
+	return (0);
 }
