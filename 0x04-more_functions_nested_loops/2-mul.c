@@ -16,3 +16,4 @@ int mul(int a, int b)
 	multy = (a * b);
 	return (multy);
 }
+
