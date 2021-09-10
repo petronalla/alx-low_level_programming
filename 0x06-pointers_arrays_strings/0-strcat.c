@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
 * _strcat - function concatenates two strings
 * @dest: string to be appended to
@@ -10,13 +12,11 @@ char *_strcat(char *dest, char *src)
 
 	while (dest[i] != '\0')
 		i++;
-	while (src[j] != '\0')
+	for (j = 0; src[j] = '\0'; j++)  
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		dest[i+j] = src[j];
+		
 	}
-	dest[i] = '\0';
 	return (dest);
 }
 
