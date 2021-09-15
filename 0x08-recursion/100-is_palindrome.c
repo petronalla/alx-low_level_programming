@@ -1,62 +1,95 @@
 #include "main.h"
 
-int check(char *s, int j, int i);
-int str_len(char *s);
-
 /**
- * is_palindrome - Checks if a string is a palindrome.
- * @s: Pointer to string to be checked.
+ * my_palindrome1 - obtains length of a
+ * @a: string
+ * @l: integer to count length
  *
- * Return: 1 if string is palindrome, o if otherwise.
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int my_palindrome1(char *a, int l)
+{
+	if (*a == 0)
+		return (l - 1);
+	return (my_palindrome1(a + 1, l + 1));
+}
+/**
+ * my_palindrome2 - compares string vs string reverse
+ * @a: string
+ * @l: length
+ *#include "main.h"
+/**
+ * my_palindrome2 - obtains length of a
+ * @a: string
+ * @l: integer to count length
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int my_palindrome2(char *a, int l)
+{
+	if (*a == 0)
+		return (l - 1);
+	return (my_palindrome2(a + 1, l + 1));
+}
+/**
+ * my_palindrome3 - compares string vs string reverse
+ * @a: string
+ * @l: length
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+
+int my_palindrome3(char *a, int l)
+{
+	if (*a != *(a + l))
+		return (0);
+	else if (*a == 0)
+		return (1);
+	return (my_palindrome3(a + 1, l - 2));
+}
+/**
+ * is_palindrome - checks if a string is a palindrome
+ * @s: string to evaluate
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
 int is_palindrome(char *s)
 {
-	int i = 0;
-	int j = str_len(s);
+	int l;
 
-	if (!(*s))
-		return (1);
-
-	return (check(s, j, i));
+	l = my_palindrome2(s, 0);
+	return (my_palindrome3(s, l));
 }
-
-/**
- * check - Checks if string is palindrome
- * @s: String pointer to be checked
- * @j: Length of @s
- * @i: String array index
- *
- * Return: 1 if string is palindrome and 0 if otherwise.
+ /* Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-int check(char *s, int j, int i)
+
+int my_palindrome3(char *a, int l)
 {
-	if (s[i] == s[j / 2])
-	{
+	if (*a != *(a + l))
+		return (0);
+	else if (*a == 0)
 		return (1);
-	}
-	if (s[i] == s[j - i - 1])
-	{
-		return (check(s, j, i + 1);
-	}
-	return (0);
+	return (my_palindrome3(a + 1, l - 2));
 }
-
 /**
- * str_len - Finds the string length.
- * @s: The string to be measured.
+ * is_palindrome - checks if a string is a palindrome
+ * @s: string to evaluate
  *
- * Return: The length of string.
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-int str_len(char *s)
+int is_palindrome(char *s)
 {
-	int j = 0;
+	int l;
 
-	if (*(s + j))
-	{
-		j++;
-		j += str_len(s + j);
-	}
-
-	return (j);
+	l = my_palindrome2(s, 0);
+	return (my_palindrome3(s, l));
 }
+
+
 
